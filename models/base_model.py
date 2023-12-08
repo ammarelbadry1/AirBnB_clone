@@ -18,16 +18,16 @@ class BaseModel:
             *args: unused
             **kwargs: a key and value of a dictionry attribute
         """
+        self.id = str(uuid.uuid4())
         if kwargs:
             for key, value in kwargs.items():
-                if key == "id":
-                    self.id = value
-                elif key == "created_at":
+                if key == "created_at":
                     self.created_at = datetime.strptime(value, time_format)
                 elif key == "updated_at":
                     self.updated_at = datetime.strptime(value, time_format)
+                else:
+                    self.__dict__[key] = value
         else:
-            self.id = str(uuid.uuid4())
             self.created_at = datetime.now()
             self.updated_at = datetime.now()
             models.storage.new(self)
