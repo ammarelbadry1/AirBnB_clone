@@ -46,3 +46,13 @@ class FileStorage:
                     self.new(eval(class_name)(**val))
         except FileNotFoundError:
             return
+
+    def destroy(self, key):
+        """utility method for console implementation"""
+        FileStorage.__objects.pop(key)
+        self.save()
+
+    def update(self, key, obj):
+        """utility method for console implementation"""
+        FileStorage.__objects[key] = obj
+        self.save()
