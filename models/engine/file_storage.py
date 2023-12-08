@@ -15,7 +15,7 @@ class FileStorage:
 
     def all(self):
         """method returns the dictionary __objects"""
-        return (self.__objects)
+        return (FileStorage.__objects)
 
     def new(self, obj):
         """
