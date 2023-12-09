@@ -3,6 +3,11 @@
 
 from models.base_model import BaseModel
 from models.user import User
+from models.state import State
+from models.city import City
+from models.amenity import Amenity
+from models.place import Place
+from models.review import Review
 import json
 
 
@@ -13,6 +18,15 @@ class FileStorage:
     """
     __file_path = "file.json"
     __objects = dict()
+    __models = {
+                    "BaseModel": BaseModel,
+                    "User": User,
+                    "State": State,
+                    "City": City,
+                    "Amenity": Amenity,
+                    "Place": Place,
+                    "Review": Review
+               }
 
     def all(self):
         """method returns the dictionary __objects"""
@@ -56,7 +70,7 @@ class FileStorage:
                 for val in json_obj.values():
                     class_name = val["__class__"]
                     del val["__class__"]
-                    self.new(eval(class_name)(**val))
+                    self.new(self.__models[class_name](**val))
         except FileNotFoundError:
             return
 

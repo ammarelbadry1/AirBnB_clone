@@ -49,8 +49,8 @@ class BaseModel:
         method returns a dictionary containing all keys/values
         of __dict__ of an instance
         """
-        newDict = self.__dict__.copy()
-        newDict["__class__"] = self.__class__.__name__
-        newDict["created_at"] = newDict["created_at"].strftime(time_format)
-        newDict["updated_at"] = newDict["updated_at"].strftime(time_format)
-        return (newDict)
+        new_dict = self.__dict__.copy()
+        new_dict["__class__"] = self.__class__.__name__
+        new_dict["created_at"] = new_dict["created_at"].strftime(time_format)
+        new_dict["updated_at"] = new_dict["updated_at"].strftime(time_format)
+        return (new_dict)
