@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """console module/program
 
-This module defines HBNBCommand child class
+This module represents HBNBCommand child class
 that inherits the command interpreter functionality
 from the super class Cmd.
 """
@@ -11,15 +11,20 @@ import models
 
 
 class HBNBCommand(cmd.Cmd):
-    """Represent a HBNBCommand class
+    """Defines a HBNBCommand class
 
     Attributes:
         prompt (str): the string issued to solicit input
+        __available_models (list): the list of available models
+        __models (dict): the dictionary of available models
     """
 
     prompt = "(hbnb) \n"
-    __available_models = ["BaseModel"]
-    __models = {"BaseModel": models.base_model.BaseModel}
+    __available_models = ["BaseModel", "User"]
+    __models = {
+                    "BaseModel": models.base_model.BaseModel,
+                    "User": models.user.User
+               }
 
     # ----- Overwritten super class methods -----
     def emptyline(self):
@@ -185,11 +190,3 @@ adding or updating attribute (save the change into the JSON file)"""
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
-
-# def destroy(self, key):
-#     FileStorage.__objects.pop(key)
-#     self.save()
-
-# def update(self, key, obj):
-#     FileStorage.__objects[key] = obj
-#     self.save()
