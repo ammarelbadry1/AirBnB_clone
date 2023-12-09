@@ -20,11 +20,16 @@ class HBNBCommand(cmd.Cmd):
     """
 
     prompt = "(hbnb) \n"
-    __available_models = ["BaseModel", "User"]
     __models = {
                     "BaseModel": models.base_model.BaseModel,
-                    "User": models.user.User
+                    "User": models.user.User,
+                    "State": models.state.State,
+                    "City": models.city.City,
+                    "Amenity": models.amenity.Amenity,
+                    "Place": models.place.Place,
+                    "Review": models.review.Review
                }
+    __available_models = __models.keys()
 
     # ----- Overwritten super class methods -----
     def emptyline(self):
@@ -158,7 +163,6 @@ adding or updating attribute (save the change into the JSON file)"""
             all_objs = models.storage.all()
             obj = all_objs[key]
             obj.__dict__.update({args[2]: args[3]})
-            print(obj.__dict__)
             models.storage.update(key, obj)
         elif (length >= 3
                 and args[0] in self.__available_models
