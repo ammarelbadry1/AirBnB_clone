@@ -2,6 +2,7 @@
 """ FileStorage class module"""
 
 from models.base_model import BaseModel
+from models.user import User
 import json
 
 
@@ -25,6 +26,18 @@ class FileStorage:
         """
         key = obj.__class__.__name__ + "." + obj.id
         FileStorage.__objects[key] = obj
+
+    def destroy(self, key):
+        """Deletes an object from __objects
+        and save the changes to the JSON file"""
+        FileStorage.__objects.pop(key)
+        self.save()
+
+    def update(self, key, obj):
+        """Updates an object from __objects
+        and save the changes to the JSON file"""
+        FileStorage.__objects[key] = obj
+        self.save()
 
     def save(self):
         """method that serializes __objects to the JSON file"""
