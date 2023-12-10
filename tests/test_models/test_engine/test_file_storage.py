@@ -20,6 +20,12 @@ class TestFileStorage_class(unittest.TestCase):
         """method tests class type"""
         self.assertEqual(type(FileStorage()), FileStorage)
 
+    def test_storage_init(self):
+        self.assertEqual(type(models.storage), FileStorage)
+
+    def testFileStorage_objects_is_private(self):
+        self.assertEqual(dict, type(FileStorage._FileStorage__objects))
+
     def test_all_method_type(self):
         """method tests all method in FileStorage"""
         self.assertEqual(dict, type(models.storage.all()))
