@@ -3,7 +3,10 @@
 
 This module apply unittests on base model
 """
-import unittest, datetime, uuid, time
+import unittest
+import datetime
+import time
+import uuid
 from models.base_model import BaseModel
 
 
@@ -22,7 +25,6 @@ class TestBaseModel(unittest.TestCase):
         obj3.email = "foo@mail.co"
         obj3.password = "123"
         obj4 = BaseModel(**obj3.to_dict())
-
 
         # test the object
         self.assertIsInstance(obj1, BaseModel)
@@ -51,7 +53,8 @@ class TestBaseModel(unittest.TestCase):
     def test_str(self):
         """Tests the string representation of the BaseModel objects"""
         obj = BaseModel()
-        obj_str = "[{}] ({}) {}".format(obj.__class__.__name__, obj.id, obj.__dict__)
+        obj_str = "[{}] ({}) {}".format(obj.__class__.__name__,
+                                        obj.id, obj.__dict__)
 
         self.assertEqual(str(obj), obj_str)
 
