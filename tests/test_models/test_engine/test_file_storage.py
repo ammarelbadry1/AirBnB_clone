@@ -66,7 +66,7 @@ class TestFileStorage_class(unittest.TestCase):
         for var, cls in newDict.items():
             models.storage.new(var)
             self.assertIn(cls + var.id, models.storage.all().keys())
-            self.assertIn(var, models.storage.all.values())
+            self.assertIn(var, models.storage.all().values())
 
     def test_save_method_with_arg(self):
         """method tests passing a None arg to save method"""

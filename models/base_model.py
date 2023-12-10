@@ -25,6 +25,8 @@ class BaseModel:
                     self.created_at = datetime.strptime(value, time_format)
                 elif key == "updated_at":
                     self.updated_at = datetime.strptime(value, time_format)
+                elif key == "__class__":
+                    continue
                 else:
                     self.__dict__[key] = value
         else:
