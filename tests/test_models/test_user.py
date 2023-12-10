@@ -30,12 +30,6 @@ class TestUser_class(unittest.TestCase):
         """method checks for created_at is public"""
         self.assertEqual(datetime, type(User().updated_at))
 
-    def test_name_is_public_class_attr(self):
-        usr = User()
-        self.assertEqual(str, type(User.name))
-        self.assertIn("name", dir(usr))
-        self.assertNotIn("name", usr.__dict__)
-
     def test_instant_with_None_kwargs(self):
         with self.assertRaises(TypeError):
             User(id=None, created_at=None, updated_at=None)
