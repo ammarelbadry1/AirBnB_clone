@@ -17,7 +17,15 @@ This project is a clone of the popular vacation rental website, AirBnB. It aims 
 
 ## Command Interpreter
 
-This version of the project includes a command interpreter program called `console.py`. This program allows you to manipulate data without a visual interface. The available commands are:
+This version of the project includes a command interpreter program called `console.py`. This program allows you to manipulate data without a visual interface.
+
+### Usage
+
+```python
+./console.py <command>
+```
+
+### Available Commands
 
 * `quit` and `EOF` to exit the program
 * `help` to show the available commands
