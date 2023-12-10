@@ -53,6 +53,8 @@ class BaseModel:
         """
         new_dict = self.__dict__.copy()
         new_dict["__class__"] = self.__class__.__name__
-        new_dict["created_at"] = new_dict["created_at"].strftime(time_format)
-        new_dict["updated_at"] = new_dict["updated_at"].strftime(time_format)
+        if "created_at" in new_dict:
+            new_dict["created_at"] = new_dict["created_at"].strftime(time_format)
+        if "updated_at" in new_dict:
+            new_dict["updated_at"] = new_dict["updated_at"].strftime(time_format)
         return (new_dict)
