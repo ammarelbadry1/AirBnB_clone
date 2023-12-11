@@ -32,9 +32,9 @@ class TestReview_class(unittest.TestCase):
 
     def test_name_is_public_class_attr(self):
         rev = Review()
-        self.assertEqual(str, type(Review.name))
-        self.assertIn("name", dir(rev))
-        self.assertNotIn("name", rev.__dict__)
+        self.assertEqual(str, type(Review.text))
+        self.assertIn("text", dir(rev))
+        self.assertNotIn("text", rev.__dict__)
 
     def test_instant_with_None_kwargs(self):
         with self.assertRaises(TypeError):
@@ -52,9 +52,9 @@ class TestReview_class(unittest.TestCase):
         self.assertIn("user_id", dir(rev))
         self.assertNotIn("user_id", rev.__dict__)
 
-        self.assertEqual(str, type(Review.name))
-        self.assertIn("name", dir(rev))
-        self.assertNotIn("name", rev.__dict__)
+        self.assertEqual(str, type(Review.text))
+        self.assertIn("text", dir(rev))
+        self.assertNotIn("text", rev.__dict__)
 
     def test_args_unused(self):
         """method tests unused args"""
