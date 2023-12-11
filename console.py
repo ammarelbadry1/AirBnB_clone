@@ -37,9 +37,43 @@ class HBNBCommand(cmd.Cmd):
         """
         pass
 
-    # def precmd(self, line):
-    #     print()
-    #     return cmd.Cmd.precmd(self, line)
+    # def onecmd(self, line):
+    #     """Defines what to do with the input command
+    #     """
+    #     if len(line.split(".")) == 2:
+    #         class_name, method = line.split(".")
+    #         tokens = re.split(r'\(|"([^"]*)"|,', method)
+    #         method_tokens = []
+    #         for token in tokens:
+    #             if (token == ""
+    #                     or token == " "
+    #                     or token == ")"
+    #                     or token is None):
+    #                 continue
+    #             method_tokens.append(token)
+    #         input_line = ""
+    #         input_line += class_name + " "
+    #         for i in range(1, len(method_tokens)):
+    #             input_line += method_tokens[i] + " "
+    #         match method_tokens[0]:
+    #             case "all":
+    #                 self.do_all(input_line)
+    #             case "show":
+    #                 self.do_show(input_line)
+    #             case "destroy":
+    #                 self.do_destroy(input_line)
+    #             case "update":  # not fully handled
+    #                 self.do_update(input_line)
+    #             case "count":
+    #                 objs = models.storage.all()
+    #                 count = 0
+    #                 for obj in objs.values():
+    #                     if class_name == obj.__class__.__name__:
+    #                         count += 1
+    #                 print(count)
+
+    #     else:
+    #         return super().onecmd(line)
 
     # ----- Utils -----
     def parse_input(self, line):
