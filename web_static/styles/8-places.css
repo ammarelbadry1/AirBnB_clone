@@ -65,15 +65,15 @@
 }
 
 .places .group-icon {
-    background-image: url(/images/icon_group.png);
+    background-image: url(../images/icon_group.png);
 }
 
 .places .bed-icon {
-    background-image: url(/images/icon_bed.png);
+    background-image: url(../images/icon_bed.png);
 }
 
 .places .bath-icon {
-    background-image: url(/images/icon_bath.png);
+    background-image: url(../images/icon_bath.png);
 }
 
 .places .user {
